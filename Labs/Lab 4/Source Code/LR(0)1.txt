@@ -1,0 +1,82 @@
+FIRST:
+
+    A => 0 1 e
+    B => 0 1 e
+    S => 0 1 e
+    T => 0 1 e
+    U => 0 1 e
+
+FOLLOW:
+
+    A => $
+    B => $
+    S => $
+    T => $ 0 1
+    U => $ 0 1
+
+Productions:
+
+    A->T0A
+    A->T0T
+    B->U1B
+    B->U1U
+    S->A
+    S->B
+    S->S
+    T->0T1
+    T->1T0
+    T->e
+    U->0U1
+    U->1U0
+    U->UU
+    U->e
+
+Canonical LR(0) Sets:
+
+    ID: 0
+    Transition: 
+        Production: [3] A->T0A
+        Production: [3] A->T0T
+        Production: [3] S->A
+        Production: [3] T->0T1
+        Production: [3] T->1T0
+        Production: [3] T->e
+
+    ID: 1
+    Transition: 0
+        Production: [4] T->0T1
+        Production: [3] T->1T0
+        Production: [3] T->e
+
+    ID: 2
+    Transition: A
+        Production: [4] S->A
+
+    ID: 3
+    Transition: T
+        Production: [4] A->T0A
+        Production: [4] A->T0T
+
+    ID: 4
+    Transition: e
+        Production: [4] T->e
+
+    ID: 5
+    Transition: T
+        Production: [5] T->0T1
+
+    ID: 6
+    Transition: 0
+        Production: [5] A->T0A
+        Production: [5] A->T0T
+        Production: [3] T->0T1
+        Production: [3] T->1T0
+        Production: [3] T->e
+
+    ID: 7
+    Transition: A
+        Production: [6] A->T0A
+
+    ID: 8
+    Transition: T
+        Production: [6] A->T0T

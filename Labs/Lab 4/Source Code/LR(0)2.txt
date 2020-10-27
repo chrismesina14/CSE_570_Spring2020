@@ -1,0 +1,43 @@
+FIRST:
+
+    S => 0 1 e 
+    X => 0 1 e 
+
+FOLLOW:
+
+    S => $ 
+    X => $ 0 1 
+
+Productions:
+
+    S->X
+    X->0X0
+    X->1X1
+    X->e
+
+Canonical LR(0) Sets:
+
+    ID: 0
+    Transition: 
+        Production: [3] S->X
+        Production: [3] X->0X0
+        Production: [3] X->1X1
+        Production: [3] X->e
+
+    ID: 1
+    Transition: 0
+        Production: [4] X->0X0
+        Production: [3] X->1X1
+        Production: [3] X->e
+
+    ID: 2
+    Transition: X
+        Production: [4] S->X
+
+    ID: 3
+    Transition: e
+        Production: [4] X->e
+
+    ID: 4
+    Transition: X
+        Production: [5] X->0X0
